@@ -1,13 +1,13 @@
 package com.example.Bookstore.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Book {
@@ -21,6 +21,7 @@ public class Book {
 	private double price;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="categoryid")
 	private Category category;
 	
